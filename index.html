@@ -31,113 +31,43 @@
     </script>
   </head>
 
-  <body
-    class="min-h-screen bg-[#070B12] text-slate-100 antialiased selection:bg-cyan-300/20 selection:text-slate-100"
-  >
-    <!-- Blueprint-style background -->
-    <div aria-hidden="true" class="pointer-events-none fixed inset-0">
-      <div
-        class="absolute inset-0 bg-[radial-gradient(1000px_circle_at_50%_30%,rgba(34,211,238,0.10),transparent_55%),radial-gradient(800px_circle_at_20%_80%,rgba(59,130,246,0.08),transparent_60%)]"
-      ></div>
+  <body class="min-h-screen bg-zinc-950 text-zinc-100 antialiased">
+    <main class="flex min-h-screen items-center justify-center px-8">
+      <section class="w-full max-w-xl space-y-16 text-center">
+        <header class="space-y-7">
+          <h1 class="text-4xl font-normal tracking-[-0.02em] sm:text-5xl">Adam Cassidy</h1>
+          <p class="text-base font-normal leading-relaxed tracking-[0.005em] text-zinc-400 sm:text-lg">
+            Senior UX Designer currently working on B2B payment products at WEX. Portfolio coming soon.
+          </p>
+        </header>
 
-      <div
-        class="absolute inset-0 opacity-[0.12]"
-        style="
-          background-image: linear-gradient(to right, rgba(148, 163, 184, 0.35) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(148, 163, 184, 0.35) 1px, transparent 1px);
-          background-size: 48px 48px;
-          background-position: center;
-        "
-      ></div>
-
-      <div
-        class="absolute inset-0 opacity-[0.06]"
-        style="
-          background-image: linear-gradient(to right, rgba(125, 211, 252, 0.35) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(125, 211, 252, 0.35) 1px, transparent 1px);
-          background-size: 12px 12px;
-          background-position: center;
-        "
-      ></div>
-
-      <div
-        class="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-slate-200/25 to-transparent"
-      ></div>
-    </div>
-
-    <main class="relative flex min-h-screen items-center justify-center px-6 py-16">
-      <section class="w-full max-w-2xl">
-        <div
-          class="rounded-2xl border border-slate-200/10 bg-slate-950/40 backdrop-blur px-8 py-10 shadow-[0_0_0_1px_rgba(255,255,255,0.03),0_40px_120px_-60px_rgba(0,0,0,0.9)]"
-        >
-          <div class="flex items-center justify-between gap-6">
-            <p class="font-mono text-xs tracking-[0.18em] text-slate-300/80">PORTFOLIO / COMING_SOON</p>
-            <div class="hidden items-center gap-2 font-mono text-[11px] text-slate-300/70 sm:flex">
-              <span class="inline-block h-1.5 w-1.5 rounded-full bg-cyan-300/70"></span>
-              <span>STATUS: BUILDING</span>
-            </div>
+        <section class="space-y-6">
+          <h2 class="font-mono text-xs uppercase tracking-[0.18em] text-zinc-500">Links</h2>
+          <div class="space-y-4 text-sm sm:text-base">
+            <p>
+              <a
+                href="mailto:adamkcassidy@gmail.com"
+                class="font-normal tracking-[0.01em] underline decoration-zinc-500/70 underline-offset-4 transition-colors duration-200 hover:text-zinc-200 hover:decoration-zinc-300/70"
+              >
+                adamkcassidy@gmail.com
+              </a>
+            </p>
+            <p>
+              <a
+                href="https://www.linkedin.com/in/adamkcassidy/"
+                target="_blank"
+                rel="noreferrer"
+                class="font-normal tracking-[0.01em] underline decoration-zinc-500/70 underline-offset-4 transition-colors duration-200 hover:text-zinc-200 hover:decoration-zinc-300/70"
+              >
+                linkedin.com/in/adamkcassidy
+              </a>
+            </p>
           </div>
+        </section>
 
-          <div class="mt-8">
-            <header>
-              <h1 class="text-3xl font-semibold tracking-tight text-slate-50 sm:text-4xl">Adam Cassidy</h1>
-              <p class="mt-4 text-base leading-relaxed text-slate-200/85">
-                Senior UX Designer currently working on B2B payment products at WEX. Portfolio coming soon.
-              </p>
-            </header>
-
-            <div class="mt-10 h-px bg-gradient-to-r from-transparent via-slate-200/15 to-transparent"></div>
-
-            <section class="mt-8">
-              <div class="flex items-baseline justify-between gap-6">
-                <h2 class="font-mono text-xs tracking-[0.22em] text-slate-300/80">LINKS</h2>
-                <span class="font-mono text-[11px] text-slate-400/60">v0.1</span>
-              </div>
-
-              <ul class="mt-5 space-y-3 text-sm">
-                <li class="flex flex-wrap items-center gap-x-3 gap-y-1">
-                  <span class="w-16 font-mono text-xs text-slate-400/70">EMAIL</span>
-                  <a
-                    class="group inline-flex items-center gap-2 text-slate-100/90 transition hover:text-white"
-                    href="mailto:adamkcassidy@gmail.com"
-                  >
-                    <span
-                      class="underline decoration-slate-400/30 underline-offset-4 group-hover:decoration-cyan-300/60"
-                    >
-                      adamkcassidy@gmail.com
-                    </span>
-                    <span class="font-mono text-[11px] text-slate-400/70 group-hover:text-cyan-200/80">↗</span>
-                  </a>
-                </li>
-
-                <li class="flex flex-wrap items-center gap-x-3 gap-y-1">
-                  <span class="w-16 font-mono text-xs text-slate-400/70">LINKEDIN</span>
-                  <a
-                    class="group inline-flex items-center gap-2 text-slate-100/90 transition hover:text-white"
-                    href="https://www.linkedin.com/in/adamkcassidy/"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <span
-                      class="underline decoration-slate-400/30 underline-offset-4 group-hover:decoration-cyan-300/60"
-                    >
-                      linkedin.com/in/adamkcassidy
-                    </span>
-                    <span class="font-mono text-[11px] text-slate-400/70 group-hover:text-cyan-200/80">↗</span>
-                  </a>
-                </li>
-              </ul>
-            </section>
-
-            <footer class="mt-10 border-t border-slate-200/10 pt-6">
-              <p class="text-xs text-slate-300/70">Built with Cursor and Tailwind. Deployed via Netlify.</p>
-            </footer>
-          </div>
-        </div>
-
-        <p class="mt-6 text-center font-mono text-[11px] tracking-[0.14em] text-slate-400/60">
-          DARK / TECHNICAL / MINIMAL
-        </p>
+        <footer>
+          <p class="text-sm tracking-[0.01em] text-zinc-500">Built with Cursor and Tailwind. Deployed via Netlify.</p>
+        </footer>
       </section>
     </main>
   </body>

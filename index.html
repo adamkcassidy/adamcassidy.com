@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adam Cassidy — Coming Soon</title>
+
+    <!-- Geist + Geist Mono (Google Fonts) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tiny Tailwind config (still single-file) -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Geist", "ui-sans-serif", "system-ui"],
+              mono: ["Geist Mono", "ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+
+  <body
+    class="min-h-screen bg-[#070B12] text-slate-100 antialiased selection:bg-cyan-300/20 selection:text-slate-100"
+  >
+    <!-- Blueprint-style background -->
+    <div aria-hidden="true" class="pointer-events-none fixed inset-0">
+      <div
+        class="absolute inset-0 bg-[radial-gradient(1000px_circle_at_50%_30%,rgba(34,211,238,0.10),transparent_55%),radial-gradient(800px_circle_at_20%_80%,rgba(59,130,246,0.08),transparent_60%)]"
+      ></div>
+
+      <div
+        class="absolute inset-0 opacity-[0.12]"
+        style="
+          background-image: linear-gradient(to right, rgba(148, 163, 184, 0.35) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(148, 163, 184, 0.35) 1px, transparent 1px);
+          background-size: 48px 48px;
+          background-position: center;
+        "
+      ></div>
+
+      <div
+        class="absolute inset-0 opacity-[0.06]"
+        style="
+          background-image: linear-gradient(to right, rgba(125, 211, 252, 0.35) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(125, 211, 252, 0.35) 1px, transparent 1px);
+          background-size: 12px 12px;
+          background-position: center;
+        "
+      ></div>
+
+      <div
+        class="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-slate-200/25 to-transparent"
+      ></div>
+    </div>
+
+    <main class="relative flex min-h-screen items-center justify-center px-6 py-16">
+      <section class="w-full max-w-2xl">
+        <div
+          class="rounded-2xl border border-slate-200/10 bg-slate-950/40 backdrop-blur px-8 py-10 shadow-[0_0_0_1px_rgba(255,255,255,0.03),0_40px_120px_-60px_rgba(0,0,0,0.9)]"
+        >
+          <div class="flex items-center justify-between gap-6">
+            <p class="font-mono text-xs tracking-[0.18em] text-slate-300/80">PORTFOLIO / COMING_SOON</p>
+            <div class="hidden items-center gap-2 font-mono text-[11px] text-slate-300/70 sm:flex">
+              <span class="inline-block h-1.5 w-1.5 rounded-full bg-cyan-300/70"></span>
+              <span>STATUS: BUILDING</span>
+            </div>
+          </div>
+
+          <div class="mt-8">
+            <header>
+              <h1 class="text-3xl font-semibold tracking-tight text-slate-50 sm:text-4xl">Adam Cassidy</h1>
+              <p class="mt-4 text-base leading-relaxed text-slate-200/85">
+                Senior UX Designer currently working on B2B payment products at WEX. Portfolio coming soon.
+              </p>
+            </header>
+
+            <div class="mt-10 h-px bg-gradient-to-r from-transparent via-slate-200/15 to-transparent"></div>
+
+            <section class="mt-8">
+              <div class="flex items-baseline justify-between gap-6">
+                <h2 class="font-mono text-xs tracking-[0.22em] text-slate-300/80">LINKS</h2>
+                <span class="font-mono text-[11px] text-slate-400/60">v0.1</span>
+              </div>
+
+              <ul class="mt-5 space-y-3 text-sm">
+                <li class="flex flex-wrap items-center gap-x-3 gap-y-1">
+                  <span class="w-16 font-mono text-xs text-slate-400/70">EMAIL</span>
+                  <a
+                    class="group inline-flex items-center gap-2 text-slate-100/90 transition hover:text-white"
+                    href="mailto:adamkcassidy@gmail.com"
+                  >
+                    <span
+                      class="underline decoration-slate-400/30 underline-offset-4 group-hover:decoration-cyan-300/60"
+                    >
+                      adamkcassidy@gmail.com
+                    </span>
+                    <span class="font-mono text-[11px] text-slate-400/70 group-hover:text-cyan-200/80">↗</span>
+                  </a>
+                </li>
+
+                <li class="flex flex-wrap items-center gap-x-3 gap-y-1">
+                  <span class="w-16 font-mono text-xs text-slate-400/70">LINKEDIN</span>
+                  <a
+                    class="group inline-flex items-center gap-2 text-slate-100/90 transition hover:text-white"
+                    href="https://www.linkedin.com/in/adamkcassidy/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <span
+                      class="underline decoration-slate-400/30 underline-offset-4 group-hover:decoration-cyan-300/60"
+                    >
+                      linkedin.com/in/adamkcassidy
+                    </span>
+                    <span class="font-mono text-[11px] text-slate-400/70 group-hover:text-cyan-200/80">↗</span>
+                  </a>
+                </li>
+              </ul>
+            </section>
+
+            <footer class="mt-10 border-t border-slate-200/10 pt-6">
+              <p class="text-xs text-slate-300/70">Built with Cursor and Tailwind. Deployed via Netlify.</p>
+            </footer>
+          </div>
+        </div>
+
+        <p class="mt-6 text-center font-mono text-[11px] tracking-[0.14em] text-slate-400/60">
+          DARK / TECHNICAL / MINIMAL
+        </p>
+      </section>
+    </main>
+  </body>
+</html>

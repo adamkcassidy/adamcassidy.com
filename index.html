@@ -32,8 +32,49 @@
     </script>
 
     <style>
+      :root {
+        --noise-opacity: 0.24;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --noise-opacity: 0.16;
+        }
+      }
+
+      body {
+        isolation: isolate;
+      }
+
+      /* Grain sits above the flat background but below content so it blends into the “paper,” not the type. */
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        opacity: var(--noise-opacity);
+        mix-blend-mode: multiply;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        background-repeat: repeat;
+        background-size: 200px 200px;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        body::before {
+          mix-blend-mode: overlay;
+        }
+      }
+
+      body > main {
+        position: relative;
+        z-index: 1;
+      }
+
       .marquee-root {
         --marquee-gap: clamp(2.5rem, 8vw, 4.5rem);
+        overflow-x: clip;
+        overflow-y: visible;
         mask-image: linear-gradient(to right, transparent, white 12%, white 88%, transparent);
         -webkit-mask-image: linear-gradient(to right, transparent, white 12%, white 88%, transparent);
       }
@@ -48,6 +89,7 @@
 
       .marquee-scroll {
         display: flex;
+        align-items: center;
         width: max-content;
         animation: marquee-ambient 85s linear infinite;
       }
@@ -67,12 +109,14 @@
 
       .marquee-slot {
         flex-shrink: 0;
-        height: clamp(1.75rem, 4vw, 2.35rem);
-        background-color: rgb(63 63 70);
+        box-sizing: border-box;
+        height: clamp(2rem, 4.35vw, 2.55rem);
+        background-color: rgb(39 39 42);
         mask-mode: alpha;
         -webkit-mask-mode: alpha;
-        -webkit-mask-size: contain;
-        mask-size: contain;
+        /* Slightly inset mask scale so anti-aliased SVG edges aren’t clipped */
+        -webkit-mask-size: calc(100% - 2px) calc(100% - 2px);
+        mask-size: calc(100% - 2px) calc(100% - 2px);
         -webkit-mask-repeat: no-repeat;
         mask-repeat: no-repeat;
         -webkit-mask-position: center;
@@ -113,6 +157,7 @@
 
       .marquee-slot-wex {
         width: clamp(3.75rem, 18vw, 5rem);
+        height: clamp(2.125rem, 5vw, 2.95rem);
         -webkit-mask-image: url("images/wex.svg");
         mask-image: url("images/wex.svg");
       }
@@ -125,7 +170,7 @@
 
       @media (prefers-color-scheme: dark) {
         .marquee-slot {
-          background-color: rgb(161 161 170);
+          background-color: rgb(228 228 231);
         }
       }
 
@@ -138,55 +183,61 @@
     </style>
   </head>
 
-  <body class="min-h-screen overflow-x-hidden bg-zinc-100 text-zinc-700 antialiased dark:bg-zinc-950 dark:text-zinc-300">
+  <body class="min-h-screen overflow-x-hidden bg-zinc-100 text-zinc-800 antialiased dark:bg-zinc-950 dark:text-zinc-200">
     <main class="flex min-h-screen items-start justify-center px-8 py-16 pb-24">
       <section class="w-full max-w-xl space-y-16 text-left">
         <header class="space-y-7">
-          <h1 class="text-base font-medium leading-relaxed tracking-[0.005em]">Adam Cassidy</h1>
-          <p class="text-xl font-medium leading-relaxed tracking-[0.005em] text-zinc-700 dark:text-zinc-300">
+          <div class="h-1 w-full bg-zinc-700 dark:bg-zinc-300" aria-hidden="true"></div>
+          <h1 class="text-lg font-semibold leading-relaxed tracking-[0.005em]">Adam Cassidy</h1>
+          <div class="h-px w-full bg-zinc-700 dark:bg-zinc-300" aria-hidden="true"></div>
+          <p class="text-3xl font-medium leading-snug tracking-[0.005em]">
             Senior Product Designer currently working on B2B payment products at WEX. Based in Columbus, Ohio.
           </p>
 
-          <div
-            class="marquee-root relative left-1/2 w-[min(39.5rem,calc(100vw-2rem))] max-w-[calc(100vw-2rem)] -translate-x-1/2 overflow-hidden py-8"
-            aria-hidden="true"
-          >
-            <div class="marquee-scroll">
-              <div class="marquee-track">
-                <span class="marquee-slot marquee-slot-disney"></span>
-                <span class="marquee-slot marquee-slot-tavistock"></span>
-                <span class="marquee-slot marquee-slot-ohio-state"></span>
-                <span class="marquee-slot marquee-slot-keybank"></span>
-                <span class="marquee-slot marquee-slot-springboard"></span>
-                <span class="marquee-slot marquee-slot-wex"></span>
-                <span class="marquee-slot marquee-slot-theory11"></span>
-              </div>
-              <div class="marquee-track">
-                <span class="marquee-slot marquee-slot-disney"></span>
-                <span class="marquee-slot marquee-slot-tavistock"></span>
-                <span class="marquee-slot marquee-slot-ohio-state"></span>
-                <span class="marquee-slot marquee-slot-keybank"></span>
-                <span class="marquee-slot marquee-slot-springboard"></span>
-                <span class="marquee-slot marquee-slot-wex"></span>
-                <span class="marquee-slot marquee-slot-theory11"></span>
+          <div class="space-y-0">
+            <div class="h-px w-full bg-zinc-700 dark:bg-zinc-300" aria-hidden="true"></div>
+            <div
+              class="marquee-root relative left-1/2 w-[min(39.5rem,calc(100vw-2rem))] max-w-[calc(100vw-2rem)] -translate-x-1/2 py-8"
+              aria-hidden="true"
+            >
+              <div class="marquee-scroll">
+                <div class="marquee-track">
+                  <span class="marquee-slot marquee-slot-disney"></span>
+                  <span class="marquee-slot marquee-slot-tavistock"></span>
+                  <span class="marquee-slot marquee-slot-ohio-state"></span>
+                  <span class="marquee-slot marquee-slot-keybank"></span>
+                  <span class="marquee-slot marquee-slot-springboard"></span>
+                  <span class="marquee-slot marquee-slot-wex"></span>
+                  <span class="marquee-slot marquee-slot-theory11"></span>
+                </div>
+                <div class="marquee-track">
+                  <span class="marquee-slot marquee-slot-disney"></span>
+                  <span class="marquee-slot marquee-slot-tavistock"></span>
+                  <span class="marquee-slot marquee-slot-ohio-state"></span>
+                  <span class="marquee-slot marquee-slot-keybank"></span>
+                  <span class="marquee-slot marquee-slot-springboard"></span>
+                  <span class="marquee-slot marquee-slot-wex"></span>
+                  <span class="marquee-slot marquee-slot-theory11"></span>
+                </div>
               </div>
             </div>
+            <div class="h-px w-full bg-zinc-700 dark:bg-zinc-300" aria-hidden="true"></div>
           </div>
 
           <div class="space-y-6">
-            <p class="text-base font-normal leading-relaxed tracking-[0.005em] text-zinc-700 dark:text-zinc-300">
+            <p class="text-base font-normal leading-relaxed tracking-[0.005em]">
               I am a Senior Product Designer with 10+ years of experience focused on
               <strong class="font-semibold">craft, usability, and simplifying the complex</strong>.
               I bring a strategic, product-driven mindset to every project, balancing user needs with business
               objectives.
             </p>
-            <p class="text-base font-normal leading-relaxed tracking-[0.005em] text-zinc-700 dark:text-zinc-300">
+            <p class="text-base font-normal leading-relaxed tracking-[0.005em]">
               My approach is rooted in an appreciation for quality and clarity. I take pride in the
               <strong class="font-semibold">&#8220;invisible&#8221; work</strong>: understanding the &#8220;why,&#8221;
-              architecting a product&#8217;s foundation, and designing the intuitive systems and documentation that make an
+              architecting a product&#8217;s foundation, and designing the systems and documentation that make an
               experience feel functional, polished, and a joy to use.
             </p>
-            <p class="text-base font-normal leading-relaxed tracking-[0.005em] text-zinc-700 dark:text-zinc-300">
+            <p class="text-base font-normal leading-relaxed tracking-[0.005em]">
               Over the past decade, my experience has spanned from communications at
               <strong class="font-semibold">The Walt Disney Company</strong> and
               <strong class="font-semibold">Tavistock Group</strong> to the high-energy environment of
@@ -196,16 +247,16 @@
               Today, I navigate the complexities of banking and payments, serving as both a lead for design execution
               and a strategic partner in shaping product direction.
             </p>
-            <p class="text-base font-normal leading-relaxed tracking-[0.005em] text-zinc-700 dark:text-zinc-300">
+            <p class="text-base font-normal leading-relaxed tracking-[0.005em]">
               This obsession with technical detail also extends to the physical world, where I freelance as a Production
               Designer for <strong class="font-semibold">theory11</strong>. Working on premium playing
               cards and puzzles for brands and studios such as
               <strong class="font-semibold">Disney, Marvel, Star Wars, Warner Bros., HBO, and Paramount</strong>,
               I manage high-specification file prep for mass production. Whether I&#8217;m configuring complex foil and
               emboss layers for luxury packaging or architecting design systems for fintech, I focus on the technical
-              precision and &#8220;craft&#8221; of the final product.
+              precision and craft of the final product.
             </p>
-            <p class="text-base font-normal leading-relaxed tracking-[0.005em] text-zinc-700 dark:text-zinc-300">
+            <p class="text-base font-normal leading-relaxed tracking-[0.005em]">
               Born and raised in the Midwest, I bring a pragmatic, collaborative energy to teams. When I&#8217;m not in Figma
               or Cursor, I&#8217;m usually tackling projects on our
               <strong class="font-semibold">100-year-old craftsman home</strong>, traveling, rock
@@ -216,8 +267,9 @@
         </header>
 
         <section class="space-y-6">
+          <div class="h-px w-full bg-zinc-700 dark:bg-zinc-300" aria-hidden="true"></div>
           <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-base">
-            <p class="text-base font-normal leading-relaxed tracking-[0.005em] text-zinc-700 dark:text-zinc-300">
+            <p class="text-base font-normal leading-relaxed tracking-[0.005em]">
               adamkcassidy@gmail.com
             </p>
             <p>
@@ -225,17 +277,18 @@
                 href="https://www.linkedin.com/in/adamkcassidy/"
                 target="_blank"
                 rel="noreferrer"
-                class="text-base font-normal leading-relaxed tracking-[0.005em] text-zinc-700 underline decoration-zinc-400/80 underline-offset-4 transition-colors duration-200 hover:text-zinc-900 hover:decoration-zinc-600/70 dark:text-zinc-300 dark:decoration-zinc-600/80 dark:hover:text-zinc-100 dark:hover:decoration-zinc-400/70"
+                class="text-base font-normal leading-relaxed tracking-[0.005em] text-zinc-800 underline decoration-zinc-400/80 underline-offset-4 transition-colors duration-200 hover:text-zinc-950 hover:decoration-zinc-600/70 dark:text-zinc-200 dark:decoration-zinc-600/80 dark:hover:text-white dark:hover:decoration-zinc-400/70"
               >
                 LinkedIn
               </a>
             </p>
           </div>
+          <div class="h-px w-full bg-zinc-700 dark:bg-zinc-300" aria-hidden="true"></div>
         </section>
 
         <footer>
           <p class="font-mono text-sm font-normal leading-relaxed tracking-[0.005em] text-zinc-500 dark:text-zinc-400">
-            Built with Cursor and Tailwind. Deployed via Netlify.
+            Built with Cursor and Tailwind. Deployed via Cloudflare.
           </p>
         </footer>
       </section>

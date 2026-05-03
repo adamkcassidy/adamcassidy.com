@@ -29,9 +29,109 @@
         },
       };
     </script>
+
+    <style>
+      .marquee-root {
+        --marquee-gap: clamp(2.5rem, 8vw, 4.5rem);
+        mask-image: linear-gradient(to right, transparent, white 12%, white 88%, transparent);
+        -webkit-mask-image: linear-gradient(to right, transparent, white 12%, white 88%, transparent);
+      }
+
+      .marquee-track {
+        display: flex;
+        align-items: center;
+        gap: var(--marquee-gap);
+        padding-inline-end: var(--marquee-gap);
+        width: max-content;
+      }
+
+      .marquee-scroll {
+        display: flex;
+        width: max-content;
+        animation: marquee-ambient 85s linear infinite;
+      }
+
+      .marquee-root:hover .marquee-scroll {
+        animation-play-state: paused;
+      }
+
+      @keyframes marquee-ambient {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      .marquee-slot {
+        flex-shrink: 0;
+        height: clamp(1.75rem, 4vw, 2.35rem);
+        background-color: rgb(63 63 70);
+        mask-mode: alpha;
+        -webkit-mask-mode: alpha;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
+      }
+
+      .marquee-slot-disney {
+        width: clamp(5rem, 22vw, 7.25rem);
+        -webkit-mask-image: url("images/disney.svg");
+        mask-image: url("images/disney.svg");
+      }
+
+      .marquee-slot-tavistock {
+        width: clamp(5.25rem, 22vw, 7.25rem);
+        height: clamp(1.9375rem, 4.5vw, 2.6rem);
+        -webkit-mask-image: url("images/tavistock.svg");
+        mask-image: url("images/tavistock.svg");
+      }
+
+      .marquee-slot-ohio-state {
+        width: clamp(4.625rem, 19vw, 5.875rem);
+        height: clamp(2.25rem, 5.25vw, 2.95rem);
+        -webkit-mask-image: url("images/ohio-state.svg");
+        mask-image: url("images/ohio-state.svg");
+      }
+
+      .marquee-slot-keybank {
+        width: clamp(5.25rem, 24vw, 7.75rem);
+        -webkit-mask-image: url("images/keybank.svg");
+        mask-image: url("images/keybank.svg");
+      }
+
+      .marquee-slot-springboard {
+        width: clamp(6rem, 28vw, 8.75rem);
+        -webkit-mask-image: url("images/springboard.svg");
+        mask-image: url("images/springboard.svg");
+      }
+
+      .marquee-slot-wex {
+        width: clamp(3.75rem, 18vw, 5rem);
+        -webkit-mask-image: url("images/wex.svg");
+        mask-image: url("images/wex.svg");
+      }
+
+      .marquee-slot-theory11 {
+        width: clamp(5rem, 22vw, 6.75rem);
+        -webkit-mask-image: url("images/theory11.svg");
+        mask-image: url("images/theory11.svg");
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .marquee-scroll {
+          animation: none !important;
+          transform: none !important;
+        }
+      }
+    </style>
   </head>
 
-  <body class="min-h-screen bg-zinc-100 text-zinc-700 antialiased">
+  <body class="min-h-screen overflow-x-hidden bg-zinc-100 text-zinc-700 antialiased">
     <main class="flex min-h-screen items-start justify-center px-8 py-16 pb-24">
       <section class="w-full max-w-xl space-y-16 text-left">
         <header class="space-y-7">
@@ -39,6 +139,33 @@
           <p class="text-xl font-medium leading-relaxed tracking-[0.005em] text-zinc-700">
             Senior Product Designer currently working on B2B payment products at WEX. Based in Columbus, Ohio.
           </p>
+
+          <div
+            class="marquee-root relative left-1/2 w-[min(39.5rem,calc(100vw-2rem))] max-w-[calc(100vw-2rem)] -translate-x-1/2 overflow-hidden py-8"
+            aria-hidden="true"
+          >
+            <div class="marquee-scroll">
+              <div class="marquee-track">
+                <span class="marquee-slot marquee-slot-disney"></span>
+                <span class="marquee-slot marquee-slot-tavistock"></span>
+                <span class="marquee-slot marquee-slot-ohio-state"></span>
+                <span class="marquee-slot marquee-slot-keybank"></span>
+                <span class="marquee-slot marquee-slot-springboard"></span>
+                <span class="marquee-slot marquee-slot-wex"></span>
+                <span class="marquee-slot marquee-slot-theory11"></span>
+              </div>
+              <div class="marquee-track">
+                <span class="marquee-slot marquee-slot-disney"></span>
+                <span class="marquee-slot marquee-slot-tavistock"></span>
+                <span class="marquee-slot marquee-slot-ohio-state"></span>
+                <span class="marquee-slot marquee-slot-keybank"></span>
+                <span class="marquee-slot marquee-slot-springboard"></span>
+                <span class="marquee-slot marquee-slot-wex"></span>
+                <span class="marquee-slot marquee-slot-theory11"></span>
+              </div>
+            </div>
+          </div>
+
           <div class="space-y-6">
             <p class="text-base font-normal leading-relaxed tracking-[0.005em] text-zinc-700">
               I am a Senior Product Designer with 10+ years of experience focused on
@@ -63,8 +190,8 @@
               and a strategic partner in shaping product direction.
             </p>
             <p class="text-base font-normal leading-relaxed tracking-[0.005em] text-zinc-700">
-              This obsession with technical detail also extends to the physical world, where I freelance as a production
-              designer for <strong class="font-semibold">theory11</strong>. Working on premium playing
+              This obsession with technical detail also extends to the physical world, where I freelance as a Production
+              Designer for <strong class="font-semibold">theory11</strong>. Working on premium playing
               cards and puzzles for brands and studios such as
               <strong class="font-semibold">Disney, Marvel, Star Wars, Warner Bros., HBO, and Paramount</strong>,
               I manage high-specification file prep for mass production. Whether I&#8217;m configuring complex foil and

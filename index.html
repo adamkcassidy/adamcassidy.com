@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="scheme-light">
+<html lang="en" class="scheme-light dark:scheme-dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -19,6 +19,7 @@
     <!-- Tiny Tailwind config (still single-file) -->
     <script>
       tailwind.config = {
+        darkMode: "media",
         theme: {
           extend: {
             fontFamily: {
@@ -122,6 +123,12 @@
         mask-image: url("images/theory11.svg");
       }
 
+      @media (prefers-color-scheme: dark) {
+        .marquee-slot {
+          background-color: rgb(161 161 170);
+        }
+      }
+
       @media (prefers-reduced-motion: reduce) {
         .marquee-scroll {
           animation: none !important;
@@ -131,12 +138,12 @@
     </style>
   </head>
 
-  <body class="min-h-screen overflow-x-hidden bg-zinc-100 text-zinc-700 antialiased">
+  <body class="min-h-screen overflow-x-hidden bg-zinc-100 text-zinc-700 antialiased dark:bg-zinc-950 dark:text-zinc-300">
     <main class="flex min-h-screen items-start justify-center px-8 py-16 pb-24">
       <section class="w-full max-w-xl space-y-16 text-left">
         <header class="space-y-7">
           <h1 class="text-base font-medium leading-relaxed tracking-[0.005em]">Adam Cassidy</h1>
-          <p class="text-xl font-medium leading-relaxed tracking-[0.005em] text-zinc-700">
+          <p class="text-xl font-medium leading-relaxed tracking-[0.005em] text-zinc-700 dark:text-zinc-300">
             Senior Product Designer currently working on B2B payment products at WEX. Based in Columbus, Ohio.
           </p>
 
@@ -167,19 +174,19 @@
           </div>
 
           <div class="space-y-6">
-            <p class="text-base font-normal leading-relaxed tracking-[0.005em] text-zinc-700">
+            <p class="text-base font-normal leading-relaxed tracking-[0.005em] text-zinc-700 dark:text-zinc-300">
               I am a Senior Product Designer with 10+ years of experience focused on
               <strong class="font-semibold">craft, usability, and simplifying the complex</strong>.
               I bring a strategic, product-driven mindset to every project, balancing user needs with business
               objectives.
             </p>
-            <p class="text-base font-normal leading-relaxed tracking-[0.005em] text-zinc-700">
+            <p class="text-base font-normal leading-relaxed tracking-[0.005em] text-zinc-700 dark:text-zinc-300">
               My approach is rooted in an appreciation for quality and clarity. I take pride in the
               <strong class="font-semibold">&#8220;invisible&#8221; work</strong>: understanding the &#8220;why,&#8221;
               architecting a product&#8217;s foundation, and designing the intuitive systems and documentation that make an
               experience feel functional, polished, and a joy to use.
             </p>
-            <p class="text-base font-normal leading-relaxed tracking-[0.005em] text-zinc-700">
+            <p class="text-base font-normal leading-relaxed tracking-[0.005em] text-zinc-700 dark:text-zinc-300">
               Over the past decade, my experience has spanned from communications at
               <strong class="font-semibold">The Walt Disney Company</strong> and
               <strong class="font-semibold">Tavistock Group</strong> to the high-energy environment of
@@ -189,7 +196,7 @@
               Today, I navigate the complexities of banking and payments, serving as both a lead for design execution
               and a strategic partner in shaping product direction.
             </p>
-            <p class="text-base font-normal leading-relaxed tracking-[0.005em] text-zinc-700">
+            <p class="text-base font-normal leading-relaxed tracking-[0.005em] text-zinc-700 dark:text-zinc-300">
               This obsession with technical detail also extends to the physical world, where I freelance as a Production
               Designer for <strong class="font-semibold">theory11</strong>. Working on premium playing
               cards and puzzles for brands and studios such as
@@ -198,7 +205,7 @@
               emboss layers for luxury packaging or architecting design systems for fintech, I focus on the technical
               precision and &#8220;craft&#8221; of the final product.
             </p>
-            <p class="text-base font-normal leading-relaxed tracking-[0.005em] text-zinc-700">
+            <p class="text-base font-normal leading-relaxed tracking-[0.005em] text-zinc-700 dark:text-zinc-300">
               Born and raised in the Midwest, I bring a pragmatic, collaborative energy to teams. When I&#8217;m not in Figma
               or Cursor, I&#8217;m usually tackling projects on our
               <strong class="font-semibold">100-year-old craftsman home</strong>, traveling, rock
@@ -210,7 +217,7 @@
 
         <section class="space-y-6">
           <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-base">
-            <p class="text-base font-normal leading-relaxed tracking-[0.005em] text-zinc-700">
+            <p class="text-base font-normal leading-relaxed tracking-[0.005em] text-zinc-700 dark:text-zinc-300">
               adamkcassidy@gmail.com
             </p>
             <p>
@@ -218,7 +225,7 @@
                 href="https://www.linkedin.com/in/adamkcassidy/"
                 target="_blank"
                 rel="noreferrer"
-                class="text-base font-normal leading-relaxed tracking-[0.005em] text-zinc-700 underline decoration-zinc-400/80 underline-offset-4 transition-colors duration-200 hover:text-zinc-900 hover:decoration-zinc-600/70"
+                class="text-base font-normal leading-relaxed tracking-[0.005em] text-zinc-700 underline decoration-zinc-400/80 underline-offset-4 transition-colors duration-200 hover:text-zinc-900 hover:decoration-zinc-600/70 dark:text-zinc-300 dark:decoration-zinc-600/80 dark:hover:text-zinc-100 dark:hover:decoration-zinc-400/70"
               >
                 LinkedIn
               </a>
@@ -227,7 +234,7 @@
         </section>
 
         <footer>
-          <p class="font-mono text-sm font-normal leading-relaxed tracking-[0.005em] text-zinc-500">
+          <p class="font-mono text-sm font-normal leading-relaxed tracking-[0.005em] text-zinc-500 dark:text-zinc-400">
             Built with Cursor and Tailwind. Deployed via Netlify.
           </p>
         </footer>

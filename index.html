@@ -32,45 +32,6 @@
     </script>
 
     <style>
-      :root {
-        --noise-opacity: 0.24;
-      }
-
-      @media (prefers-color-scheme: dark) {
-        :root {
-          --noise-opacity: 0.16;
-        }
-      }
-
-      body {
-        isolation: isolate;
-      }
-
-      /* Grain sits above the flat background but below content so it blends into the “paper,” not the type. */
-      body::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        z-index: 0;
-        pointer-events: none;
-        opacity: var(--noise-opacity);
-        mix-blend-mode: multiply;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-        background-repeat: repeat;
-        background-size: 200px 200px;
-      }
-
-      @media (prefers-color-scheme: dark) {
-        body::before {
-          mix-blend-mode: overlay;
-        }
-      }
-
-      body > main {
-        position: relative;
-        z-index: 1;
-      }
-
       .marquee-root {
         --marquee-gap: clamp(2.5rem, 8vw, 4.5rem);
         overflow-x: clip;
@@ -187,9 +148,20 @@
     <main class="flex min-h-screen items-start justify-center px-8 py-16 pb-24">
       <section class="w-full max-w-xl space-y-16 text-left">
         <header class="space-y-7">
-          <div class="h-[3px] w-full bg-zinc-800 dark:bg-zinc-200" aria-hidden="true"></div>
-          <h1 class="text-lg font-semibold leading-relaxed tracking-[0.005em]">Adam Cassidy</h1>
-          <div class="h-px w-full bg-zinc-400 dark:bg-zinc-600" aria-hidden="true"></div>
+          <div class="space-y-4">
+            <div class="h-[3px] w-full bg-zinc-800 dark:bg-zinc-200" aria-hidden="true"></div>
+            <div class="flex items-center justify-between gap-3">
+              <h1 class="text-lg font-semibold leading-snug tracking-[0.005em]">Adam Cassidy</h1>
+              <img
+                src="images/adam-headshot.png"
+                alt=""
+                class="h-14 w-14 shrink-0 rounded-full object-cover"
+                width="56"
+                height="56"
+              />
+            </div>
+            <div class="h-px w-full bg-zinc-400 dark:bg-zinc-600" aria-hidden="true"></div>
+          </div>
           <p class="text-3xl font-medium leading-snug tracking-[0.005em]">
             Senior Product Designer currently working on B2B payment solutions at WEX. Based in Columbus, Ohio.
           </p>
